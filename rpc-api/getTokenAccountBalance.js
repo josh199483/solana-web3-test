@@ -1,9 +1,9 @@
-const { CONNECTION, ALICE_TOKEN_ADDRESS_1 } = require("../const");
+const { CONNECTION, TOKEN_ADDRESS_1 } = require("../const");
 
 // 查詢代幣餘額
 
 async function main() {
-  let response = await CONNECTION.getTokenAccountBalance(ALICE_TOKEN_ADDRESS_1);
+  let response = await CONNECTION.getTokenAccountBalance(TOKEN_ADDRESS_1);
   console.log(response);
 }
 

@@ -6,7 +6,8 @@ const phrase = 'abandon abandon abandon abandon abandon abandon abandon abandon 
 const seedBuffer = bip39.mnemonicToSeedSync(phrase)
 
 // fromSeed method only accept 32 bytes seed
-const SOLANA_WALLET = Keypair.fromSeed(seedBuffer.slice(0, 32));
+// EHqmfkN89RJ7Y33CXM6uCzhVeuywHoJXZZLszBHHZy7o
+const PAYER = Keypair.fromSeed(seedBuffer.slice(0, 32));
 
 const ALICE = Keypair.fromSecretKey(
   Uint8Array.from([
@@ -16,23 +17,28 @@ const ALICE = Keypair.fromSecretKey(
   ])
 );
 
-// const API_ENDPOINT = "http://api.devnet.solana.com";
-const API_ENDPOINT = "http://localhost:8899";
+// const API_ENDPOINT = "https://api.mainnet-beta.solana.com"
+// const API_ENDPOINT = "https://solana-api.projectserum.com"
+const API_ENDPOINT = "http://api.devnet.solana.com";
+// const API_ENDPOINT = "http://localhost:8899";
 
 const CONNECTION = new Connection(API_ENDPOINT);
 
-const TEST_MINT = new PublicKey("E4ZN2KmnVmpwLwjJNAwRjuQLeE5iFHLcAJ8LGB7FMaGQ");
+const TEST_MINT_1 = new PublicKey("7cLRPv1ZiuYuLGdBVWoBoTAyzZL5VqxPRJJ93ZeNowHy");
 
-const ALICE_TOKEN_ADDRESS_1 = new PublicKey("3ug8rjJdifEcTExVXFkaGuSjR3VZoDWi49ghA8gYpZiF")
+const TEST_MINT_2 = new PublicKey("2MCDXvUqibn4VbkUnsAxYeMR7rZ7gYZDySQgHZ2bGUWj");
 
-const ALICE_TOKEN_ADDRESS_2 = new PublicKey("8Rs6tAqLUDzVc3GweP71sefv68ejsW8dG9ZssWpqfhBP")
+const TOKEN_ADDRESS_1 = new PublicKey("EXGuKgmqc3kBmRQWH4LfcLtVaFVU8qVK3QSy6FkFei9X")
+
+const TOKEN_ADDRESS_2 = new PublicKey("9jwUAvdgBGBm3aQ6U2ibiPavEKVh2uD5SPXPQyqcjFst")
 
 module.exports = {
-  SOLANA_WALLET,
+  PAYER,
   ALICE,
   API_ENDPOINT,
   CONNECTION,
-  TEST_MINT,
-  ALICE_TOKEN_ADDRESS_1,
-  ALICE_TOKEN_ADDRESS_2
+  TEST_MINT_1,
+  TEST_MINT_2,
+  TOKEN_ADDRESS_1,
+  TOKEN_ADDRESS_2
 }
